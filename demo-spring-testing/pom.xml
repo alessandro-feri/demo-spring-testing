@@ -20,6 +20,7 @@
 	  
 	  <!-- For SonarQube -->
       <sonar.projectKey>alessandro-feri_demo-spring-testing2</sonar.projectKey>
+      <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
       
       <sonar.coverage.jacoco.xmlReportPaths>
         ${project.reporting.outputDirectory}/jacoco/jacoco.xml
