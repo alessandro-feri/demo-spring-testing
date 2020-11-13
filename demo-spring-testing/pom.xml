@@ -144,9 +144,9 @@
 	        </configuration>
 	        <executions>
 	          <execution>
-<!--            <configuration>
+                 <configuration>
 	              <propertyName>surefireArgLine</propertyName>
-	            </configuration>  -->
+	            </configuration> 
 	            <goals>
 	              <goal>prepare-agent</goal>
 	              <goal>report</goal>
@@ -154,13 +154,13 @@
 	          </execution>
 	        </executions>
 	      </plugin>
-<!--      <plugin>
+          <plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-surefire-plugin</artifactId>
 	        <configuration>
 	          <argLine>${surefireArgLine}</argLine>
 	        </configuration>
-	      </plugin>  -->
+	      </plugin>  
 	      <plugin>
 	        <groupId>org.eluder.coveralls</groupId>
 	        <artifactId>coveralls-maven-plugin</artifactId>
