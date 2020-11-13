@@ -6,6 +6,10 @@ jdk: openjdk8
 
 git:
   depth: false
+  
+addons:
+  sonarcloud:
+    organization: "alessandroferi-github"
 
  # skip installation step
 install: true
@@ -13,6 +17,7 @@ install: true
 cache:
    directories:
       - $HOME/.m2
+      - $HOME/.sonar/cache
 
 script:
-   - mvn -f demo-spring-testing/pom.xml clean verify -Pjacoco coveralls:report 
+   - mvn -f demo-spring-testing/pom.xml clean verify -Pjacoco coveralls:report sonar:sonar 
