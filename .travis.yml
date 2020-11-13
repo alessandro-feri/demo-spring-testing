@@ -1,0 +1,18 @@
+language: java
+
+dist: xenial
+ 
+jdk: openjdk8
+
+git:
+  depth: false
+
+ # skip installation step
+install: true
+
+cache:
+   directories:
+      - $HOME/.m2
+
+script:
+   - mvn -f demo-spring-testing/pom.xml clean verify -Pjacoco coveralls:report 
