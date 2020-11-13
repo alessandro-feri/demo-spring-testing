@@ -17,6 +17,29 @@
 
 	<properties>
 	  <java.version>1.8</java.version>
+	  
+	  <!-- For SonarQube -->
+      <sonar.projectKey>alessandro-feri_demo-spring-testing2</sonar.projectKey>
+      
+      <sonar.coverage.jacoco.xmlReportPaths>
+        ${project.reporting.outputDirectory}/jacoco/jacoco.xml
+      </sonar.coverage.jacoco.xmlReportPaths>
+      <!-- Also collects integration tests -->
+      <sonar.junit.reportPaths>
+        ${project.build.directory}/surefire-reports,
+        ${project.build.directory}/failsafe-reports
+      </sonar.junit.reportPaths>
+      <!-- Also scans HTML files -->
+      <sonar.sources>
+        pom.xml,
+        ${project.build.sourceDirectory},
+        ${basedir}/src/main/resources
+      </sonar.sources>
+      <!-- Exclude non covered files -->
+      <sonar.coverage.exclusions>
+        **/*Application.*,
+        **/model/*
+      </sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
@@ -141,6 +164,11 @@
 	        <groupId>org.eluder.coveralls</groupId>
 	        <artifactId>coveralls-maven-plugin</artifactId>
 	        <version>4.3.0</version>
+	      </plugin>
+	      <plugin>
+	        <groupId>org.sonarsource.scanner.maven</groupId>
+	        <artifactId>sonar-maven-plugin</artifactId>
+	        <version>3.7.0.1746</version>
 	      </plugin>
 	    </plugins> 
 	  </pluginManagement>
