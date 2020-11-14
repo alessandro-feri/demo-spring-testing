@@ -22,4 +22,9 @@ public class EmployeeService {
 		
 	}
 
+	public Employee getEmployeeById(long id) {
+		throw new UnsupportedOperationException(TEMPORARY_IMPLEMENTATION);
+		
+	}
+
 }
