@@ -93,4 +93,5 @@ public class EmployeeRestControllerRestAssuredTest {
 				"name", equalTo("test"),
 				"salary", equalTo(1000)
 			);
+	}
 }
