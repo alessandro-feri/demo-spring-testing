@@ -27,4 +27,12 @@ public class EmployeeService {
 		
 	}
 
+	public Employee insertNewEmployee(Employee employee) {
+		throw new UnsupportedOperationException(TEMPORARY_IMPLEMENTATION);
+	}
+
+	public Employee updateEmployeeById(long id, Employee replacement) {
+		throw new UnsupportedOperationException(TEMPORARY_IMPLEMENTATION);
+	}
+
 }
