@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.examples.spring.demo.model.Employee;
@@ -18,6 +19,9 @@ public class EmployeeRepositoryTest {
 
 	@Autowired
 	private EmployeeRepository repository;
+	
+	@Autowired
+	private TestEntityManager entityManager;
 
 	@Test
 	public void firstLearningTest() {
@@ -26,5 +30,17 @@ public class EmployeeRepositoryTest {
 		Collection<Employee> employees = repository.findAll();
 		assertThat(employees).containsExactly(saved);
 	}
+	
+	@Test
+	public void secondLearningTest() {
+		// we can add a record with the TestEntityManager
+		// and read it back with the Repository
+		Employee employee = new Employee(null, "test", 1000);
+		Employee saved = entityManager.persistFlushFind(employee);
+		Collection<Employee> employees = repository.findAll();
+		assertThat(employees).containsExactly(saved);
+	}
+
+
 
 } 
