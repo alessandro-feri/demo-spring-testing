@@ -41,6 +41,13 @@ public class EmployeeRepositoryTest {
 		assertThat(employees).containsExactly(saved);
 	}
 
+	@Test
+	public void test_findByEmployeeName() {
+		Employee saved = entityManager.
+			persistFlushFind(new Employee(null, "test", 1000));
+		Employee found = repository.findByName("test");
+		assertThat(found).isEqualTo(saved);
+	}
 
 
 } 
