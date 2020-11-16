@@ -1,0 +1,16 @@
+package com.examples.spring.demo.services;
+
+import java.util.List;
+
+import com.examples.spring.demo.model.Employee;
+
+public class EmployeeService {
+
+	private static final String TEMPORARY_IMPLEMENTATION = "Temporary implementation";
+	
+	public List<Employee> getAllEmployees() {
+		throw new UnsupportedOperationException(TEMPORARY_IMPLEMENTATION);
+		
+	}
+	
+}
