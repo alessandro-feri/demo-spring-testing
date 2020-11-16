@@ -53,6 +53,8 @@ public class EmployeeWebControllerTest {
 
 		mvc.perform(get("/"))
 			.andExpect(view().name("index"))
+			.andExpect(model().attribute("employees",
+					employees))
 			.andExpect(model().attribute("message",
 				 ""));
 	}
