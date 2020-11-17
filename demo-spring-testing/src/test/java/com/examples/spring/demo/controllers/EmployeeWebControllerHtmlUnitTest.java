@@ -48,6 +48,20 @@ public class EmployeeWebControllerHtmlUnitTest {
 			.getTextContent()).contains("No employee");
 	}
 	
+
+	@Test
+	public void test_HomePage_ShouldProvideALinkForCreatingANewEmployee() throws Exception {
+		HtmlPage page = this.webClient.getPage("/");
+
+		assertThat(
+			page
+				.getAnchorByText("New employee")
+				.getHrefAttribute()
+		).isEqualTo("/new");
+	}
+
+
+	
 	@Test
 	public void test_HomePageWithEmployees_ShouldShowThemInATable() throws Exception {
 		when(employeeService.getAllEmployees())
