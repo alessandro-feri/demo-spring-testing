@@ -106,6 +106,25 @@ public class EmployeeWebControllerHtmlUnitTest {
 	}
 
 
+	@Test
+	public void testEditNewEmployee() throws Exception {
+		HtmlPage page = this.webClient.getPage("/new");
+
+		// Get the form that we are dealing with
+		final HtmlForm form = page.getFormByName("employee_form");
+		// retrieve fields by their names and change their values
+		form.getInputByName("name").setValueAttribute("new name");
+		form.getInputByName("salary").setValueAttribute("1000");
+
+		// Now submit the form by clicking the button and get back the second page.
+		form.getButtonByName("btn_submit").click();
+
+		// verify that the employee has been inserted through the service
+		// using the values entered in the form (note the id must be null)
+		verify(employeeService)
+			.insertNewEmployee(new Employee(null, "new name", 1000));
+	}
+	
 	
 	//rimuove gli \r aggiuntivi prodotti da Windows per andare a capo
 	private String removeWindowsCR(String s) {
